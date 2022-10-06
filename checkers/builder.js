@@ -61,32 +61,17 @@ class Checker {
     updateLists(location) {
         let y = location[0]; let x = location[1];
         let oldy = this.location[0]; let oldx = this.location[1];
-        checker_list[oldy][oldx] = 0; checker_list[oldy][oldx] = 0;
+        checker_list[oldy][oldx] = 0; board[oldy][oldx] = 0;
         checker_list[y][x] = this;
         board[y][x] = this.HTMLPointer;
     }
     move(location) {
+        let y = location[0]; let x = location[1];
+        let oldy = this.location[0]; let oldx = [this.location[1]];
+        this.location = [y,x];
+        nodes[oldy][oldx].removeChild(nodes[oldy][oldx].firstChild);
+        nodes[y][x].appendChild(board[oldy][oldx]);
         this.updateLists(location);
-        for (let i = 0; i < nodes.length; i++) {
-            for (let ii = 0; ii < nodes.length; ii++) {
-                let node1 = nodes[i][ii];
-                if (node1.firstChild == this) {
-                    node1.remove(node1.firstChild);
-                }
-                if ([i, ii] = location) {
-                    for (let i = 0; i < checker_list.length; i++) {
-                        for (let ii = 0; ii < checker_list.length; ii++) {
-                            if (checker_list[i][ii] == this) {
-                                console.log(board[i][ii]);
-                                node1.appendChild(board[i][ii]);
-                            }
-                        }
-                    }
-                    
-                }
-            }
-        }
-        //call update here
     }
 }
 class King extends Checker {

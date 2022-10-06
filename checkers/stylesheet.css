@@ -4,7 +4,6 @@
     float: left;
     position: relative;
     z-index: 1;
-
 }
 .checker {
     position: relative;
@@ -14,17 +13,11 @@
     height:80%;
     margin: 7% auto;
 }
-.checker:hover {
-    
-}
 .checker0 {
     background-color: white;
 }
 .checker1 {
     background-color: black;
-}
-.boardAreas:hover {
-    background-color: aqua;
 }
 .boardArea0 {
     background-color: burlywood;
